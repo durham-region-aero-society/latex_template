@@ -1,1 +1,1 @@
-# latex_template
+# Organizational LaTeX Document Template
