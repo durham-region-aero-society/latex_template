@@ -1,0 +1,168 @@
+%! TeX program = xelatex
+\documentclass[12 pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\version}{01}
+\newcommand{\pubyear}{2023}
+\newcommand{\origyear}{2023}
+\newcommand{\origmonth}{July}
+\newcommand{\origday}{16}
+
+% DRAS  - Durham Region Aeronautical Society   %
+% AVRRL - Avionics and Robotics Research Lab   %
+% ROCL  - Rocket Lab                           %
+% AVIA  - Aviation Research Lab                %
+\newcommand{\department}{DRAS}
+
+% TM - Technical Memorandum  %
+% TP - Technical Publication %
+% SP - Special Publication   %
+% GM - General Memorandum    %
+% GR - General Report        %
+\newcommand{\pubcat}{TM}
+\newcommand{\docnumber}{001}
+
+\newcommand{\codegen}{\department/\pubcat-\pubyear\docnumber-\version}
+
+\newcommand{\doctitle}{Report Template}
+\newcommand{\authorgen}{Brandon Boisvert$^{\ *}$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography Configuration %
+
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Nomenclature Configuration %
+
+\usepackage{nomencl}
+\makenomenclature
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Font Configuration %
+
+\usepackage{fontspec}
+\setmainfont{Open Sans}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract Configuration %
+
+\renewcommand\abstractname{Summary}
+
+\makeatletter
+\renewenvironment{abstract}{
+      \begin{center}
+        {\bfseries \Large\abstractname\vspace{\z@}}
+      \end{center}
+  \quotation}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents Configuration %
+
+\renewcommand\contentsname{Table of Contents}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section and Subsection Configuration %
+
+\titleformat{\section}{\normalfont\Large\bfseries\filcenter}{\thesection.}{1em}{}
+\titleformat{\subsection}{\sffamily\slshape\bfseries}{\thesubsection.}{1em}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titlepage Configuration %
+
+\begin{titlepage}
+    \begin{flushleft}
+        \begin{large}
+            \codegen\\
+        \end{large}
+        \begin{huge}
+            \vspace{0.5cm}
+            \textbf{\doctitle}\\
+        \end{huge}
+            \vspace{0.5cm}
+            \emph{\authorgen}\\
+    \end{flushleft}
+        \vfill
+
+    \begin{flushleft}
+        \emph{$^{*}$ Durham Region Aeronautical Society, Oshawa, Ontario}\\ 
+    \end{flushleft}
+    \rule{\textwidth}{2pt}
+    \begin{flushleft}
+        Origin Date: \origmonth\ \origday,\ \origyear\\
+        Last Updated: \today
+    \end{flushleft}
+\end{titlepage}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Front Matter %
+
+\pagenumbering{roman}
+\section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+\clearpage
+\begin{abstract}
+    \addcontentsline{toc}{section}{Summary}
+    Sample summary
+\end{abstract}    
+
+\clearpage
+\tableofcontents
+\addcontentsline{toc}{section}{Table of Contents}
+\clearpage
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+\clearpage
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\clearpage
+\nomenclature{$\rho$}{=\emph{Pressure}}
+\printnomenclature
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main Matter %
+
+\pagenumbering{arabic}
+\section{Introduction}
+Hello World!\cite{einstein, examplebook}
+
+
+\section{Conclusions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography/References %
+
+\clearpage
+\addcontentsline{toc}{section}{References}
+\bibliography{references}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
